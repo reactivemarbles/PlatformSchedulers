@@ -14,7 +14,7 @@
   <ItemGroup>
     <Compile Remove="Platforms\**\*.cs" />
     <None Include="Platforms\**\*.cs" />
-    <PackageReference Include="System.Reactive" Version="4.1.6" />
+    <PackageReference Include="System.Reactive" Version="4.4.1" />
   </ItemGroup>
   
   <ItemGroup Condition=" $(TargetFramework.StartsWith('Xamarin.iOS')) ">
