@@ -1,15 +1,10 @@
-// Copyright (c) 2019 Glenn Watson. All rights reserved.
+// Copyright (c) 2022 Glenn Watson. All rights reserved.
 // Glenn Watson licenses this file to you under the MIT license.
 // See the LICENSE file in the project root for full license information.
 
 using System;
-using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
-using System.Linq;
-using System.Reactive;
 using System.Reactive.Concurrency;
 using System.Reactive.Disposables;
-using Android.App;
 using Android.OS;
 
 namespace ReactiveMarbles.PlatformSchedulers
@@ -44,7 +39,6 @@ namespace ReactiveMarbles.PlatformSchedulers
         public DateTimeOffset Now => DateTimeOffset.Now;
 
         /// <inheritdoc/>
-        [SuppressMessage("Design", "CA2000", Justification = "Dispose disposable")]
         public IDisposable Schedule<TState>(TState state, Func<IScheduler, TState, IDisposable> action)
         {
             bool isCancelled = false;
@@ -66,7 +60,6 @@ namespace ReactiveMarbles.PlatformSchedulers
         }
 
         /// <inheritdoc/>
-        [SuppressMessage("Design", "CA2000", Justification = "Dispose disposable")]
         public IDisposable Schedule<TState>(TState state, TimeSpan dueTime, Func<IScheduler, TState, IDisposable> action)
         {
             bool isCancelled = false;
@@ -74,14 +67,15 @@ namespace ReactiveMarbles.PlatformSchedulers
 
             _handler.PostDelayed(
                 () =>
-            {
-                if (isCancelled)
                 {
-                    return;
-                }
+                    if (isCancelled)
+                    {
+                        return;
+                    }
 
-                innerDisp.Disposable = action(this, state);
-            }, dueTime.Ticks / 10 / 1000);
+                    innerDisp.Disposable = action(this, state);
+                },
+                dueTime.Ticks / 10 / 1000);
 
             return new CompositeDisposable(
                 Disposable.Create(() => isCancelled = true),

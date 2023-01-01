@@ -1,85 +1,82 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{D42B7565-9EA7-427A-96F2-24D11F3EFF7B}</ProjectGuid>
-    <ProjectTypeGuids>{A3F8F2AB-B479-4A4A-A458-A89E7DC349F1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <TemplateGuid>{40ed8a7a-2bf4-42fa-b1a7-b43e1d3b7273}</TemplateGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>ReactiveMarbles.PlatformSchedulers.Tests.Mac</RootNamespace>
-    <AssemblyName>ReactiveMarbles.PlatformSchedulers.Tests.Mac</AssemblyName>
-    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
-    <TargetFrameworkIdentifier>Xamarin.Mac</TargetFrameworkIdentifier>
-    <MonoMacResourcePrefix>Resources</MonoMacResourcePrefix>
-    <EnableSGenConc>true</EnableSGenConc>
-    <MtouchHttpClientHandler>NSUrlSessionHandler</MtouchHttpClientHandler>
-    <NoWarn>$(NoWarn);SA1600;CA1001</NoWarn>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug</OutputPath>
-    <DefineConstants>DEBUG;</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <EnableCodeSigning>false</EnableCodeSigning>
-    <CodeSigningKey>Mac Developer</CodeSigningKey>
-    <CreatePackage>false</CreatePackage>
-    <EnablePackageSigning>false</EnablePackageSigning>
-    <IncludeMonoRuntime>false</IncludeMonoRuntime>
-    <UseSGen>true</UseSGen>
-    <UseRefCounting>true</UseRefCounting>
-    <Profiling>true</Profiling>
-    <PackageSigningKey>3rd Party Mac Developer Installer</PackageSigningKey>
-    <AOTMode>None</AOTMode>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release</OutputPath>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <EnableCodeSigning>false</EnableCodeSigning>
-    <CreatePackage>true</CreatePackage>
-    <EnablePackageSigning>false</EnablePackageSigning>
-    <IncludeMonoRuntime>true</IncludeMonoRuntime>
-    <UseSGen>true</UseSGen>
-    <UseRefCounting>true</UseRefCounting>
-    <LinkMode>SdkOnly</LinkMode>
-    <CodeSigningKey>Mac Developer</CodeSigningKey>
-    <PackageSigningKey>3rd Party Mac Developer Installer</PackageSigningKey>
-    <AOTMode>None</AOTMode>
-  </PropertyGroup>
-  <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="Xamarin.Mac" />
-    <Reference Include="netstandard" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Info.plist" />
-    <None Include="Entitlements.plist" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Moqs\FakeDispatchQueue.cs" />
-    <Compile Include="Moqs\TrackedDispose.cs" />
-    <Compile Include="Program.cs" />
-    <Compile Include="DispatchQueueSchedulerTests.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="System.Reactive" Version="4.1.6" />
-    <PackageReference Include="Microsoft.Reactive.Testing" Version="5.0.0" />
-    <PackageReference Include="xunit.runner.utility" Version="2.4.1" />
-    <PackageReference Include="xunit" Version="2.4.1" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ReactiveMarbles.PlatformSchedulers\ReactiveMarbles.PlatformSchedulers.csproj">
-      <Project>{3322f2f0-fc2d-417e-bc15-aac8263653bd}</Project>
-      <Name>ReactiveMarbles.PlatformSchedulers</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <Target Name="pack" Label="Hackworkaround" />
-  <Import Project="$(MSBuildExtensionsPath)\Xamarin\Mac\Xamarin.Mac.CSharp.targets" />
+<PropertyGroup>
+		<Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+		<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+		<ProjectGuid>{D42B7565-9EA7-427A-96F2-24D11F3EFF7B}</ProjectGuid>
+		<ProjectTypeGuids>{A3F8F2AB-B479-4A4A-A458-A89E7DC349F1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+		<TemplateGuid>{40ed8a7a-2bf4-42fa-b1a7-b43e1d3b7273}</TemplateGuid>
+		<OutputType>Exe</OutputType>
+		<RootNamespace>ReactiveMarbles.PlatformSchedulers.Tests.Mac</RootNamespace>
+		<AssemblyName>ReactiveMarbles.PlatformSchedulers.Tests.Mac</AssemblyName>
+		<TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+		<TargetFrameworkIdentifier>Xamarin.Mac</TargetFrameworkIdentifier>
+		<MonoMacResourcePrefix>Resources</MonoMacResourcePrefix>
+		<EnableSGenConc>true</EnableSGenConc>
+		<MtouchHttpClientHandler>NSUrlSessionHandler</MtouchHttpClientHandler>
+		<NoWarn>$(NoWarn);SA1600;CA1001</NoWarn>
+		<AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+		<DebugSymbols>true</DebugSymbols>
+		<DebugType>full</DebugType>
+		<Optimize>false</Optimize>
+		<OutputPath>bin\Debug</OutputPath>
+		<DefineConstants>DEBUG;</DefineConstants>
+		<ErrorReport>prompt</ErrorReport>
+		<WarningLevel>4</WarningLevel>
+		<EnableCodeSigning>false</EnableCodeSigning>
+		<CodeSigningKey>Mac Developer</CodeSigningKey>
+		<CreatePackage>false</CreatePackage>
+		<EnablePackageSigning>false</EnablePackageSigning>
+		<IncludeMonoRuntime>false</IncludeMonoRuntime>
+		<UseSGen>true</UseSGen>
+		<UseRefCounting>true</UseRefCounting>
+		<Profiling>true</Profiling>
+		<PackageSigningKey>3rd Party Mac Developer Installer</PackageSigningKey>
+		<AOTMode>None</AOTMode>
+	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+		<DebugType>pdbonly</DebugType>
+		<Optimize>true</Optimize>
+		<OutputPath>bin\Release</OutputPath>
+		<ErrorReport>prompt</ErrorReport>
+		<WarningLevel>4</WarningLevel>
+		<EnableCodeSigning>false</EnableCodeSigning>
+		<CreatePackage>true</CreatePackage>
+		<EnablePackageSigning>false</EnablePackageSigning>
+		<IncludeMonoRuntime>true</IncludeMonoRuntime>
+		<UseSGen>true</UseSGen>
+		<UseRefCounting>true</UseRefCounting>
+		<LinkMode>SdkOnly</LinkMode>
+		<CodeSigningKey>Mac Developer</CodeSigningKey>
+		<PackageSigningKey>3rd Party Mac Developer Installer</PackageSigningKey>
+		<AOTMode>None</AOTMode>
+	</PropertyGroup>
+	<ItemGroup>
+		<Reference Include="Xamarin.Mac" />
+	</ItemGroup>
+	<ItemGroup>
+		<None Include="Info.plist" />
+		<None Include="Entitlements.plist" />
+	</ItemGroup>
+	<ItemGroup>
+		<Compile Include="Moqs\FakeDispatchQueue.cs" />
+		<Compile Include="Moqs\TrackedDispose.cs" />
+		<Compile Include="Program.cs" />
+		<Compile Include="DispatchQueueSchedulerTests.cs" />
+	</ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+		<PackageReference Include="Microsoft.Reactive.Testing" Version="5.0.0" />
+		<PackageReference Include="xunit.runner.utility" Version="2.4.1" />
+	</ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\ReactiveMarbles.PlatformSchedulers\ReactiveMarbles.PlatformSchedulers.csproj">
+			<Project>{3322f2f0-fc2d-417e-bc15-aac8263653bd}</Project>
+			<Name>ReactiveMarbles.PlatformSchedulers</Name>
+		</ProjectReference>
+	</ItemGroup>
+	<Target Name="pack" Label="Hackworkaround" />
+	<Import Project="$(MSBuildExtensionsPath)\Xamarin\Mac\Xamarin.Mac.CSharp.targets" />
 </Project>
