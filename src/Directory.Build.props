@@ -38,7 +38,7 @@
 		<PackageReference Include="xunit.runner.visualstudio" Version="3.1.4" />
 		<PackageReference Include="Xunit.StaFact" Version="1.2.69" />
 		<PackageReference Include="Shouldly" Version="4.3.0" />
-		<PackageReference Include="PublicApiGenerator" Version="11.5.1" />
+		<PackageReference Include="PublicApiGenerator" Version="11.5.3" />
 	</ItemGroup>
 
 	<ItemGroup Condition="'$(IsTestProject)' != 'true' and '$(SourceLinkEnabled)' != 'false'">
